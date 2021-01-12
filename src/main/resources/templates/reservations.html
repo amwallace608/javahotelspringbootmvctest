@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+      <head>
+<meta charset="ISO-8859-1">
+<title>Reservations</title>
+</head>
+<body>
+    <h1 align="center">Hotel Rooms</h1>
+    <br/>
+    <table border="1" cellpadding="10" align="center">
+        <thead>
+            <tr>
+            	<th>Id</th>
+                <th>Room Number</th>
+                <th>Bed Type</th>
+                <th>Rate</th>
+                <th>Smoking</th>
+                <th>Occupant</th>
+            </tr>
+        </thead>
+        <tbody>
+        	<tr th:each="room:${rooms}">
+        	<td th:text="${room.id}"> Id</td>
+        	<td th:text="${room.roomNum}"> Room Number</td>
+        	<td th:text="${room.bedType}"> Bed Type</td>
+        	<td th:text="${room.rate}"> Rate</td>
+        	<td th:text="${room.smoking}">Smoking</td>
+        	<td th:text="${room.occupantName}">Occupied</td>
+        	
+			<!-- cancel reservation -->
+			<td><a th:href="@{/cancel_reservation/{id}(id=${room.id})}">Cancel</a></td> 
+        	
+        </tr>
+        </tbody>
+        </table>
+        
+       
+</body>
+</html>

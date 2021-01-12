@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"><head>
+<meta charset="ISO-8859-1">
+<title>Add Room</title>
+</head>
+<body>
+<form action="#" th:action="@{/save_room/{hotelId}(hotelId=${hotel.id})}" th:object="${room}" method="post">
+
+Room Number:
+<input type="text" th:field="*{roomNum}"/><br>
+Bed Type:
+<input type="text" th:field="*{bedType}"/><br>
+Rate:
+<input type="text" th:field="*{rate}"/><br>
+Smoking:
+<input type="text" th:field="*{smoking}"/><br>
+
+
+<button type="submit">save</button>
+
+</form>
+</body>
+</html>

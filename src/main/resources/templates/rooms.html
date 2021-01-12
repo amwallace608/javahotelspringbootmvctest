@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+      <head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+    <h1 align="center">Hotel Rooms</h1>
+    <br/>
+    <table border="1" cellpadding="10" align="center">
+        <thead>
+            <tr>
+            	<th>Id</th>
+                <th>Room Number</th>
+                <th>Bed Type</th>
+                <th>Rate</th>
+                <th>Smoking</th>
+                <th>Occupied</th>
+            </tr>
+        </thead>
+        <tbody>
+        	<tr th:each="room:${rooms}">
+        	<td th:text="${room.id}"> Id</td>
+        	<td th:text="${room.roomNum}"> Room Number</td>
+        	<td th:text="${room.bedType}"> Bed Type</td>
+        	<td th:text="${room.rate}"> Rate</td>
+        	<td th:text="${room.smoking}">Smoking</td>
+        	<td th:text="${room.occupied}">Occupied</td>
+        	
+        	<!-- Add reservation link to rows -->
+        	<td><a th:href="@{/reserve/{id}(id=${room.id})}">Reserve</a></td> 
+        </tr>
+        </tbody>
+        </table>
+        <br>
+        <div align="center">
+        	<a th:href="@{/new_room/{hotelId}(hotelId=${hotel.id})}">Create new room</a>
+        	<br>
+        	<a th:href="@{/reservations/{hotelId}(hotelId=${hotel.id})}">View Reservations</a>
+        </div>
+        
+        
+        
+       
+</body>
+</html>

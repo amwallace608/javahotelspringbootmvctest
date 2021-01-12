@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"><head>
+<meta charset="ISO-8859-1">
+<title>Make Reservation</title>
+</head>
+<body>
+<form action="#" th:action="@{/new_reservation/{hotelId}(hotelId = ${hotel.id})}" th:object="${room}" method="post">
+
+Room Number:
+<input type="text" th:field="*{roomNum}" readonly="readonly"/><br>
+Bed Type:
+<input type="text" th:field="*{bedType}" readonly="readonly"/><br>
+Rate:
+<input type="text" th:field="*{rate}" readonly="readonly"/><br>
+Smoking:
+<input type="text" th:field="*{smoking}" readonly="readonly"/><br>
+<br>
+Occupant Name: 
+<input type="text" th:field="*{occupantName}"/><br>
+
+
+<button type="submit">Make Reservation</button>
+
+</form>
+<br>
+<a th:href="@{/rooms/{hotelId}(hotelId=${hotel.id})}">Cancel</a>
+</body>
+</html>
